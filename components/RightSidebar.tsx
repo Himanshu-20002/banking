@@ -2,7 +2,6 @@ import React from "react";
 import { RightSidebarProps } from "@/types";
 import Link from "next/link";
 import Image from "next/image";
-import { Bank } from "@/types";
 import BankCard from "./BankCard";
 
 
@@ -15,12 +14,13 @@ const RightSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
         <div className="profile">
           <div className="profile-img">
             <span className="text-5xl font-bold text-blue-500">
-              {user.firstName[0]}
+              {console.log(user.name)}
+              {user.name[0]}
             </span>
           </div>
           <div className="profile-details">
             <h1 className="profile-name">
-              {user.firstName} {user.lastName}
+              {user.name}
             </h1>
             <p className="profile-email">{user.email}</p>
           </div>
@@ -35,6 +35,7 @@ const RightSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
               alt="add bank"
               width={20}
               height={20}
+              className="cursor-pointer"
             />
             <h2 className="text-14 font-semibold text-gray-600">Add Bank</h2>
           </Link>
