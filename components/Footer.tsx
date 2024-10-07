@@ -7,9 +7,13 @@ const Footer = async ({ user, type = "desktop" }: FooterProps) => {
   const router = useRouter();
 
   const handleLogout = async () => {
-    const logout = await logoutAccount();
+    const loggedOut = await logoutAccount();
+    if (loggedOut) {
+      router.push("/sign-in");
+    }
+    //  logoutAccount() returns a value that can be tested for truthiness, such as a boolean indicating success or failure.
 
-    if (logout) {router.push("/sign-in")}
+    //
   };
   return (
     <footer className="footer">

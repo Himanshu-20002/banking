@@ -11,7 +11,9 @@ export default async function RootLayout({
     children: React.ReactNode;
   }>) {
     const loggedIn = await getLoggedInUser();
-    // if(!loggedIn) redirect('/sign-in')
+    if(!loggedIn) redirect('/sign-in')
+      //router can not be used in server components
+    // we used redirect to redirect the user to the sign-in page if they are not logged in
     console.log(loggedIn)
 
 
